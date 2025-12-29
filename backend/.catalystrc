@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "project": 1,
+    "env": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "27452000000019001",
+      "name": "EDSCustomerPortel",
+      "domain": {
+        "id": "50037329488",
+        "name": "edscustomerportel-60060956819.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60060956819",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

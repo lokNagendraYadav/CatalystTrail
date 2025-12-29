@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "targets": [
+      "login_function"
+    ],
+    "ignore": [],
+    "source": "functions"
+  }
+}
