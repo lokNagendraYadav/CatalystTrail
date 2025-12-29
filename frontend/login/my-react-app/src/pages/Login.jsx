@@ -20,7 +20,7 @@ export default function Login() {
 
           <iframe
             title="Catalyst Login"
-            src="PASTE_IFRAME_URL_HERE"
+            src="https://static.zohocdn.com/catalyst/sdk/js/4.5.0/catalystWebSDK.js"
             style={{
               width: "100%",
               height: "420px",
