@@ -17,10 +17,17 @@ export default function Login() {
         "https://edscustomerportel-60060956819.development.catalystserverless.in/server/login_function/",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // 🔴 VERY IMPORTANT for session cookies
           body: JSON.stringify({ email, password }),
         }
       );
+
+      if (!response.ok) {
+        throw new Error("Server error");
+      }
 
       const data = await response.json();
 
@@ -30,11 +37,14 @@ export default function Login() {
         return;
       }
 
-      // ✅ Login success
+      // ✅ LOGIN SUCCESS
       console.log("Logged in user:", data.user);
-      alert("Login successful");
+
+      // redirect after login
+      window.location.href = "/app/dashboard.html";
 
     } catch (err) {
+      console.error(err);
       setError("Server not reachable");
     } finally {
       setLoading(false);
@@ -43,7 +53,7 @@ export default function Login() {
 
   return (
     <div className="container">
-      {/* LEFT SIDE – unchanged */}
+      {/* LEFT SIDE */}
       <div className="leftSide">
         <div className="overlay">
           <div className="logoSection">
@@ -53,12 +63,12 @@ export default function Login() {
         </div>
       </div>
 
-      {/* RIGHT SIDE – YOUR LOGIN UI */}
+      {/* RIGHT SIDE */}
       <div className="rightSide">
         <div className="formContainer">
           <h2>Welcome Back!</h2>
 
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {error && <p className="errorText">{error}</p>}
 
           <form onSubmit={handleSubmit}>
             <input
